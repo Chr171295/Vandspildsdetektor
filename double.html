@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<body>
+<div id="myChart" style="width:100%; max-width:600px; height:500px;"></div>
+
+<script>
+google.charts.load('current',{packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+// Set Data
+const data = google.visualization.arrayToDataTable([
+ ['Klokken', 'Antal deltager', 'Liderlighed'],
+ [7,2,8],[8,6,6],[9,9,11],[10,7,8],[11,8,14],[12,8,11],[13,12,17],[14,15,26],
+  [15,18,30],[16,10,40],[17,11,50],
+  [18,44,68],[19,60,69],[20,69,70]
+]);
+
+// Set Options
+const options = {
+ title: 'SPAR klubben aktivitet',
+ hAxis: {title: 'Klokken'},
+ vAxis: {title: 'Antal swingers'},
+ legend: 'none'
+};
+
+// Draw
+const chart = new google.visualization.LineChart(document.getElementById('myChart'));
+chart.draw(data, options);
+
+}
+</script>
+
+</body>
+</html>
