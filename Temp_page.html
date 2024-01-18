@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperaturmålinger</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      setInterval(function() {
+        $.ajax({
+          url: "get_temperatures.php",
+          success: function(result) {
+            var data = JSON.parse(result);
+            $("#temp1").text(data.temp1 + " °C");
+            $("#temp2").text(data.temp2 + " °C");
+            $("#temp_diff").text(data.temp_diff + " °C");
+          }
+        });
+      }, 1000);
+    });
+  </script>
+</head>
+<body>
+  <h1>Temperaturmålinger</h1>
+  <p>Temperatur 1: <span id="temp1"></span></p>
+  <p>Temperatur 2: <span id="temp2"></span></p>
+  <p>Temperaturforskel: <span id="temp_diff"></span></p>
+</body>
+</html>
