@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="javascript.js"></script>
 <title>Dashboard</title>
 <link href="/home/projekt1/www/favicon.ico" rel="icon" type="image/x-icon">
 </head>
@@ -10,7 +12,19 @@
     Dashboard
     
 </h1>
-<h1></h1>
+<div id="myChart" style="width:100%; max-width:600px; height:300px;"></div>
+<form>
+    <label>
+        Fra dato
+        <input type="date" name="bday" id="date1" required pattern="\d{4}-\d{2}-\d{2}" />
+    
+    </label>
+    <label>
+        Til dato
+        <input type="date" name="bday" id="date2" required pattern="\d{4}-\d{2}-\d{2}" />
+      </label>
+</form>
+<button onclick="fetchData()" type="button">Hent data</button>
 </body>
 </html> 
 
